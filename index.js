@@ -6,11 +6,11 @@ const server = require("http").createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {
   cors: {
-    origin: [`${process.env.NODE_CLIENT_URL}`],
+    origin: ["*"],
   },
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3306;
 
 // socket이 연결되었을 때
 io.on("connection", (socket) => {
