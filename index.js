@@ -4,16 +4,15 @@ const app = express();
 
 const server = require("http").createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
-//   cors: {
-//     origin: [
-//       "https://manimoa.vercel.app",
-//       "https://dev-manimoa.vercel.app",
-//       "http://localhost:3000",
-//     ],
-//     credentials: true,
-//   },
-// });
+const io = new Server(server, {
+  cors: {
+    origin: [
+      "http://localhost:3000", // 개발 환경 도메인
+      "https://dev-manimoa.vercel.app",
+    ],
+    credentials: true, // 클라이언트에서 인증 정보를 포함한 요청을 허용
+  },
+});
 
 const port = process.env.PORT || 5000;
 
