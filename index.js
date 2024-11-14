@@ -11,7 +11,7 @@ const io = new Server(server, {
   },
 });
 
-const port = process.env.PORT || 3306;
+const port = process.env.PORT || 5000;
 
 // socket이 연결되었을 때
 io.on("connection", (socket) => {
